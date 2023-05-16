@@ -15,7 +15,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.view.View
 
-class LoginActivity2 : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var textureView: TextureView
 
@@ -104,7 +104,7 @@ class LoginActivity2 : AppCompatActivity() {
 
                 override fun onError(camera: CameraDevice, error: Int) {
                     cameraDevice.close()
-                    this@LoginActivity2.finish()
+                    this@LoginActivity.finish()
                 }
             }, null)
         } else {

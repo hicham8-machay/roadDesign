@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-
 import android.widget.Toast
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
-import com.example.roadsign.databinding.ActivityLoginBinding
 import com.example.roadsign.databinding.ActivityMainBinding
 import java.util.concurrent.Executor
 
@@ -61,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         "Authentication succeeded!", Toast.LENGTH_SHORT)
                         .show()
                     // Start the ButtonActivity
-                    val intent = Intent(this@MainActivity, LoginActivity2::class.java)
+                    val intent = Intent(this@MainActivity, LoginActivity::class.java)
                     startActivity(intent)
 
                     // Finish the LoginActivity2 to prevent the user from going back to it using the back button
