@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -26,7 +25,6 @@ class SignupActivity : AppCompatActivity() {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
-
         val sign_up_btn: Button = findViewById(R.id.sign_up_btn)
         sign_up_btn.setOnClickListener {
             performSignUp()
@@ -43,11 +41,11 @@ class SignupActivity : AppCompatActivity() {
             Toast.makeText(this, "Please fill all fiealds", Toast.LENGTH_SHORT)
                 .show()
             return
-        } else if (!password.text.equals(Cfpassword.text)) {
+        } /*else if (password.text!=Cfpassword.text) {
             Toast.makeText(this, "Password not Confirmed Correctly ", Toast.LENGTH_SHORT)
                 .show()
             return
-        }
+        }*/
 
         val inputEmail = email.text.toString()
         val inputPassword = password.text.toString()
@@ -55,7 +53,7 @@ class SignupActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     Toast.makeText(
                         baseContext, "Sucess.",

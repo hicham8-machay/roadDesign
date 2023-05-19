@@ -3,13 +3,10 @@ package com.example.roadsign
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.example.roadsign.databinding.ActivitySigninBinding
@@ -19,28 +16,22 @@ import com.google.firebase.ktx.Firebase
 import java.util.concurrent.Executor
 
 class SignInActivity : AppCompatActivity() {
-
     private lateinit var auth: FirebaseAuth
-
 
     lateinit var binding: ActivitySigninBinding
     lateinit var info: String
-
-
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
-        auth=Firebase.auth
+        auth = Firebase.auth
 
-        val signUpBtn: Button = findViewById(R.id.sign_in_button2)
+        val signUpBtn: Button = findViewById(R.id.signUp_btn)
         signUpBtn.setOnClickListener {
-          //  Log.d("Click", "Sign Up button clicked") // Add this log statement
-           val intent = Intent(this, SignupActivity::class.java)
+            //  Log.d("Click", "Sign Up button clicked") // Add this log statement
+            val intent = Intent(this@SignInActivity, SignupActivity::class.java)
             startActivity(intent)
             Toast.makeText(
                 applicationContext, "Sign Up ",
@@ -63,63 +54,65 @@ class SignInActivity : AppCompatActivity() {
                 .show()
             performLogin()
         }
+        fun biometrix(){
 
-        binding = ActivitySigninBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+            binding = ActivitySigninBinding.inflate(layoutInflater)
+            setContentView(binding.root)
 
-        /*binding.imgFinger.setOnClickListener {
+            /*binding.imgFinger.setOnClickListener {
             checkDeviceHasBiometric()
         }*/
 
-        executor = ContextCompat.getMainExecutor(this)
-        biometricPrompt = BiometricPrompt(this, executor,
-            object : BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationError(
-                    errorCode: Int,
-                    errString: CharSequence,
-                ) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(
-                        applicationContext,
-                        "Authentication error: $errString", Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
+            executor = ContextCompat.getMainExecutor(this)
+            biometricPrompt = BiometricPrompt(this, executor,
+                object : BiometricPrompt.AuthenticationCallback() {
+                    override fun onAuthenticationError(
+                        errorCode: Int,
+                        errString: CharSequence,
+                    ) {
+                        super.onAuthenticationError(errorCode, errString)
+                        Toast.makeText(
+                            applicationContext,
+                            "Authentication error: $errString", Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
 
-                override fun onAuthenticationSucceeded(
-                    result: BiometricPrompt.AuthenticationResult,
-                ) {
-                    super.onAuthenticationSucceeded(result)
-                    Toast.makeText(
-                        applicationContext,
-                        "Authentication succeeded!", Toast.LENGTH_SHORT
-                    ).show()
+                    override fun onAuthenticationSucceeded(
+                        result: BiometricPrompt.AuthenticationResult,
+                    ) {
+                        super.onAuthenticationSucceeded(result)
+                        Toast.makeText(
+                            applicationContext,
+                            "Authentication succeeded!", Toast.LENGTH_SHORT
+                        ).show()
 
-                    val intent = Intent(this@SignInActivity, LoginActivity::class.java)
-                    startActivity(intent)
+                        val intent = Intent(this@SignInActivity, LoginActivity::class.java)
+                        startActivity(intent)
 
-                    // Finish the LoginActivity2 to prevent the user from going back to it using the back button
-                    finish()
-                }
+                        // Finish the LoginActivity2 to prevent the user from going back to it using the back button
+                        finish()
+                    }
 
-                override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(
-                        applicationContext, "Authentication failed",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-            })
+                    override fun onAuthenticationFailed() {
+                        super.onAuthenticationFailed()
+                        Toast.makeText(
+                            applicationContext, "Authentication failed",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                })
 
-        promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Biometric login for my app")
-            .setSubtitle("Log in using your biometric credential")
-            .setNegativeButtonText("Use account password")
-            .build()
+            promptInfo = BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric login for my app")
+                .setSubtitle("Log in using your biometric credential")
+                .setNegativeButtonText("Use account password")
+                .build()
 
-        binding.fingerprintLogin.setOnClickListener {
-            biometricPrompt.authenticate(promptInfo)
+            binding.fingerprintLogin.setOnClickListener {
+                biometricPrompt.authenticate(promptInfo)
+            }
         }
     }
 
@@ -159,6 +152,7 @@ class SignInActivity : AppCompatActivity() {
         binding.tvShowMsg.text = info
     }*/
 
+
     private fun performLogin() {
         val email = findViewById<EditText>(R.id.email_login)
         val password = findViewById<EditText>(R.id.password_login)
@@ -191,7 +185,7 @@ class SignInActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Toast.makeText(
                     baseContext,
                     "Authentication failed. ${it.localizedMessage}",

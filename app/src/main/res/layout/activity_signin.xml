@@ -16,40 +16,39 @@
 
     <ImageView
         android:id="@+id/fingerprint_login"
-        android:layout_width="161dp"
-        android:layout_height="82dp"
+        android:layout_width="147dp"
+        android:layout_height="67dp"
         android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.458"
         app:srcCompat="@drawable/img_2" />
 
     <EditText
         android:id="@+id/email_login"
-        android:layout_width="344dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="319dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="Email or Username"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <EditText
         android:id="@+id/password_login"
-        android:layout_width="344dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="320dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_login" />
 
@@ -80,47 +79,48 @@
 
     <Button
         android:id="@+id/sign_in_button"
-        android:layout_width="169dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="138dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="104dp"
         android:backgroundTint="#4050F9"
         android:text="Sing In"
         app:cornerRadius="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/sign_in_button2"
-        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_login" />
 
     <Button
-        android:id="@+id/sign_in_button2"
-        android:layout_width="157dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/signUp_btn"
+        android:layout_width="135dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="@color/teal_200"
         android:text="Sing Up"
         app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_login" />
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toEndOf="@+id/sign_in_button"
+        app:layout_constraintTop_toBottomOf="@+id/fr_pass" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:text="Or Use The Biometric option "
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         style="@style/cutom_card_view_style"
-        android:layout_width="360dp"
-        android:layout_height="154dp"
+        android:layout_width="362dp"
+        android:layout_height="143dp"
         app:cardBackgroundColor="#4050fa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -139,8 +139,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="Welcome Back!"
                 android:textColor="@color/white"
-                android:textSize="35dp"
-                android:translationX="50dp"
+                android:textSize="25dp"
+                android:translationX="80dp"
                 android:translationY="40dp" />
 
             <TextView
@@ -151,10 +151,8 @@
                 android:text="Login to your account"
                 android:textColor="#CDCBCB"
                 android:textStyle="bold"
-                android:translationX="110dp"
+                android:translationX="100dp"
                 android:translationY="50dp" />
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
