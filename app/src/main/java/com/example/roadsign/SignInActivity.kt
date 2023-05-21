@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
@@ -18,8 +19,8 @@ import java.util.concurrent.Executor
 class SignInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
-    lateinit var binding: ActivitySigninBinding
-    lateinit var info: String
+    //lateinit var binding: ActivitySigninBinding
+    //lateinit var info: String
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
@@ -27,7 +28,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
         auth = Firebase.auth
-
+        val fgprint:ImageView=findViewById(R.id.fingerprint_login)
         val signUpBtn: Button = findViewById(R.id.signUp_btn)
         signUpBtn.setOnClickListener {
             //  Log.d("Click", "Sign Up button clicked") // Add this log statement
@@ -54,10 +55,10 @@ class SignInActivity : AppCompatActivity() {
                 .show()
             performLogin()
         }
-        fun biometrix(){
 
-            binding = ActivitySigninBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+
+            //binding = ActivitySigninBinding.inflate(layoutInflater)
+            //setContentView(binding.root)
 
             /*binding.imgFinger.setOnClickListener {
             checkDeviceHasBiometric()
@@ -110,11 +111,11 @@ class SignInActivity : AppCompatActivity() {
                 .setNegativeButtonText("Use account password")
                 .build()
 
-            binding.fingerprintLogin.setOnClickListener {
+            fgprint.setOnClickListener {
                 biometricPrompt.authenticate(promptInfo)
             }
         }
-    }
+
 
     /*fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)

@@ -13,7 +13,9 @@ import android.widget.Button
 import androidx.core.app.ActivityCompat
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.View
+import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,14 +37,17 @@ class LoginActivity : AppCompatActivity() {
         val startButton = findViewById<Button>(R.id.start_Button)
         startButton.setOnClickListener {
 
-
+            val intent = Intent(this@LoginActivity, CameraActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(
+                applicationContext, "Camera",
+                Toast.LENGTH_SHORT
+            ).show()
             // Hide the button
-            startButton.setVisibility(View.GONE);
-
+            //startButton.setVisibility(View.GONE);
             // Start camera preview and object detection
-            startCameraPreview();
+            //startCameraPreview();
             //startObjectDetection();
-
         }
     }
     private fun getBackFacingCameraId(): String {
