@@ -247,7 +247,7 @@ class CameraActivity : AppCompatActivity() {
 
     private fun loadModelFile(): ByteBuffer {
         val assetManager: AssetManager = assets
-        val modelFilename = "model.tflite"
+        val modelFilename = "model3.tflite"
 
         val inputStream: InputStream = assetManager.open(modelFilename)
         val fileBytes = inputStream.readBytes()

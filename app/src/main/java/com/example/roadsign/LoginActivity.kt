@@ -33,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        textureView = findViewById<TextureView>(R.id.tex)
         val startButton = findViewById<Button>(R.id.start_Button)
         startButton.setOnClickListener {
 

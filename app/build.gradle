@@ -48,11 +48,12 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation "androidx.biometric:biometric-ktx:1.2.0-alpha04"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
     implementation 'androidx.biometric:biometric-ktx:1.2.0-alpha04'
+    implementation "androidx.biometric:biometric-ktx:1.2.0-alpha04"
+
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
 

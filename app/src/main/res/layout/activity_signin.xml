@@ -24,13 +24,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.404"
+        app:layout_constraintVertical_bias="0.458"
         app:srcCompat="@drawable/img_2" />
 
     <EditText
         android:id="@+id/email_login"
-        android:layout_width="319dp"
-        android:layout_height="45dp"
+        android:layout_width="318dp"
+        android:layout_height="53dp"
         android:layout_marginTop="68dp"
         android:ems="10"
         android:hint="Email or Username"
